@@ -17,3 +17,5 @@ if (!Array.prototype.myIncludes) {
 // Ab aap ise use kar sakte ho
 const arr = [1, 2, 3];
 console.log(arr.myIncludes(2)); // true
+
+
