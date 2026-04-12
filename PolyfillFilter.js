@@ -1,16 +1,17 @@
-// Pehle hum apna "Filter" wala manual (polyfill) likhenge
-if (!Array.prototype.filter) {
-    Array.prototype.filter = function (callback) {
-        const filteredArray = [];
-        for (let i = 0; i < this.length; i++) {
-            // Agar callback TRUE bolega, tabhi naye array mein jayega
+Array.prototype.filter = function (callback) {
+    const result = [];
+
+    for (let i = 0; i < this.length; i++) {
+        // i in this: Sparse arrays (khaali slots) ko skip karne ke liye
+        if (i in this) {
             if (callback(this[i], i, this)) {
-                filteredArray.push(this[i]);
+                // Bina push ke: Current length ko hi index bana do
+                result[result.length] = this[i];
             }
         }
-        return filteredArray;
-    };
-}
+    }
+    return result;
+};
 
 // --- AB ISE TEST KARTE HAIN ---
 
