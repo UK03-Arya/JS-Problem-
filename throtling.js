@@ -1,16 +1,12 @@
-function throttle(func, limit) {
-    let inThrottle;
-    return function (...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
+function throttle(fn,delay){
+  let run =true;
+  return function(...args){
+    if(!run) return
+    fn(...args)
+    run=false
+    setTimeout(function(){run=true},delay)
+  }
 }
+const Fast=throttle(function(){console.log("selected")},1000)
 
-// Usage
-const handleScroll = throttle(() => {
-    console.log("Scroll event processed!");
-}, 1000);
-
+setInterval(Fast,100)
