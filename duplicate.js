@@ -13,3 +13,14 @@ function findDup(str) {
 }
 
 console.log(findDup("hhheelll"))
+
+// ALGo
+// phle ek function bnynge
+// ek count k lie object lnge
+// ek res k lie array lenge jaha res store hoga
+// frr ek for loop chlega
+// str argument k index ko ek varible m stro krgneg 
+// ek if condition aayga isme count m varible ko array m 1 k equal m check krnge
+// res k andr res length m usko create variable se equal rkhnge
+// count array varible ko equal m const array variable or 0 plus 1 rkhnge
+// return kr dnge res ko
