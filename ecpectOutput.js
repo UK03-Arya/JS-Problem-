@@ -1,24 +1,12 @@
-
-function expect(n) {
-
-
-    const toBe = function (val) {
-        if (n == val) return true;
-        throw new Error("Not Equal")
-    }
-    const notToBe = function (val) {
-        if (n !== val) return true
-        throw new Error("Equal")
-    }
+var expect = function (val) {
     return {
-        toBe: toBe,
-        notToBe: notToBe
-    }
-}
-
-try {
-    console.log("check", expect(5).toBe(5))
-}
-catch (err) {
-    console.log("err", err)
-}
+        toBe: function (otherVal) {
+            if (val === otherVal) return true;
+            else throw new Error("Not Equal");
+        },
+        notToBe: function (otherVal) {
+            if (val !== otherVal) return true;
+            else throw new Error("Equal");
+        }
+    };
+};
