@@ -18,3 +18,23 @@ function flattenArray(arr) {
 
 console.log(flattenArray(nestedArray));
 // Output: [1, 2, 3, 4, 5]
+
+
+
+
+function flattenArray(arr, result = []) {
+
+    for (let i = 0; i < arr.length; i++) {
+        if (
+            typeof arr[i] === 'object' &&
+            arr[i] !== null &&
+            arr[i].constructor === Array
+        ) {
+            flattenArray(arr[i], result)
+        }
+        else {
+            result[result.length] = arr[i]
+        }
+    }
+    return result
+}
