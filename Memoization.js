@@ -35,3 +35,22 @@ const memoizedAdd = memoize(add);
 console.log(memoizedAdd(10, 20)); // Pehli baar: Calculation hogi (Naya kaam)
 console.log(memoizedAdd(10, 20)); // Dusri baar: Cache se aayega (Fast!)
 console.log(memoizedAdd(5, 5));   // Alag arguments: Phir se calculation hogi
+
+// prac
+
+
+function memoize(fn) {
+    let cache = {}
+    return function (...args) {
+        const key = JSON.stringify(args)
+        if (key in cache) {
+            console.log(key, "old")
+            return cache[key]
+        }
+        console.log("new", key)
+        const result = fn(...args)
+        cache[key] = result
+
+        return result
+    }
+}
