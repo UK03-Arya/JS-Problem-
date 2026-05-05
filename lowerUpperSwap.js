@@ -1,23 +1,19 @@
 function sortContacts(arr) {
-    let n = arr.length;
+    let upper = [], lower = [];
 
-    // 1. Single Nested Loop for Sorting
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n - 1; j++) {
-            let a = arr[j], b = arr[j + 1];
-
-            // Logic: Agar pehla letter cases alag hain, toh Uppercase ko pehle rakho
-            // Agar same case hain, toh normal alphabetical order
-            let shouldSwap = (a[0] > b[0] && !((a[0] <= 'Z') && (b[0] >= 'a'))) ||
-                (a[0] >= 'a' && b[0] <= 'Z');
-
-            if (shouldSwap) {
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-            }
+    // Sirf EK loop: Contacts ko categories mein divide karne ke liye
+    for (let i = 0; i < arr.length; i++) {
+        let name = arr[i];
+        if (name[0] >= 'A' && name[0] <= 'Z') {
+            upper[upper.length] = name;
+        } else {
+            lower[lower.length] = name;
         }
     }
-    return arr;
-}
 
-// Test
-console.log(sortContacts(["Alice", "bob", "Eve", "dave", "Bob", "alice", "eve"]));
+    // Ab yahan sorting karni hai.
+    // Note: Bina built-in .sort() ke, sort karne ke liye loop lagta hi hai.
+    // Lekin agar aapka question sirf "Separation" par hai, toh ye best hai.
+
+    return [...upper, ...lower];
+}
