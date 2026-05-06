@@ -1,3 +1,4 @@
+
 // --- Polyfill Code ---
 function myPromiseAll(promises) {
     return new Promise((resolve, reject) => {
@@ -48,3 +49,6 @@ myPromiseAll([p1, p2, p3])
     .catch((err) => {
         console.log("Error occurred:", err);
     });
+
+
+//console out put 
