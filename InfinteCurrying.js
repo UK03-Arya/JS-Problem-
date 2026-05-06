@@ -11,4 +11,4 @@ function sum(a) {
 
 // Usage:
 console.log(sum(1)(2)(3)(4)()); // Output: 10
-console.log(sum(10)(20)());     // Output: 30
+console.log(sum(10)(20)());     // Output: 30 dwhiw
