@@ -1,4 +1,4 @@
-
+//deep copy of an object
 function deepCopy(obj) {
     if (obj === null || typeof obj !== 'object')
         return obj;
